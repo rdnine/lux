@@ -1,0 +1,13 @@
+{
+    "name": "rdnine/lux",
+    "description": "The next PHP Micro-Framework for fast development",
+    "type": "framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Duarte",
+            "email": "rafael@rdnine.dev"
+        }
+    ],
+    "require": {}
+}
