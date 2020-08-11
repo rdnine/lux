@@ -21,17 +21,6 @@ require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Path Utilities
-|--------------------------------------------------------------------------
-|
-| Ever felt lost? Say no more to that. We define the paths so the app can quickly run through the maze
-|
-*/
-
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "paths.php";
-
-/*
-|--------------------------------------------------------------------------
 | Ignite
 |--------------------------------------------------------------------------
 |
@@ -39,4 +28,4 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATO
 |
 */
 
-require_once APP . "init.php";
+$app = new Core\Lux();

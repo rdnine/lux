@@ -40,6 +40,10 @@ if (!defined('VIEWS')) {
     define('VIEWS', SRC . 'views' . DS);
 }
 
+if (!defined('ERRORS')) {
+    define('ERRORS', VIEWS . 'errors' . DS);
+}
+
 if (!defined('MODELS')) {
     define('MODELS', APP . 'models' . DS);
 }
