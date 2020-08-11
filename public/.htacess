@@ -24,7 +24,7 @@ Options  -MultiViews -Indexes
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
-	RewriteRule ^([^?]*) index.php?URI=$1 [QSA,L]
+	RewriteRule ^([^?]*) index.php? [QSA,L]
 </IfModule>
 
 # Gzip
