@@ -21,7 +21,7 @@ if (!defined('APP')) {
 }
 
 if (!defined('CONFIG')) {
-    define('CONFIG', APP . 'config' . DS);
+    define('CONFIG', APP . 'Config' . DS);
 }
 
 if (!defined('CORE')) {
@@ -33,7 +33,7 @@ if (!defined('PUBLIC')) {
 }
 
 if (!defined('CONTROLLERS')) {
-    define('CONTROLLERS', APP . 'controllers' . DS);
+    define('CONTROLLERS', APP . 'Controllers' . DS);
 }
 
 if (!defined('VIEWS')) {
@@ -45,7 +45,7 @@ if (!defined('ERRORS')) {
 }
 
 if (!defined('MODELS')) {
-    define('MODELS', APP . 'models' . DS);
+    define('MODELS', APP . 'Models' . DS);
 }
 
 if (!defined('ROUTES')) {
