@@ -23,6 +23,6 @@
         "App\\": "app/",
         "Core\\": "core/"
       },
-      "files": ["core/Helpers.php"]
+      "files": ["core/Paths.php", "core/Helpers.php", "routes/web.php"]
     }
 }
