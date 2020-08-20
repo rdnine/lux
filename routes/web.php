@@ -3,15 +3,16 @@
 // Web routes here
 
 use Core\Router as Router;
+use App\Controllers;
 
 Router::get('/', function() {
-  echo "Homepage!";
+  Controllers\PageController::index();
 });
 
 Router::get('{lg}/', function() {
-  echo "Homepage!";
+  Controllers\PageController::index();
 });
 
 Router::get('{lg}/{page}/', function($lg, $page) {
-  echo "this is {$page} in {$lg}";
+  Controllers\PageController::unknown($lg, $page);
 });
