@@ -36,9 +36,9 @@ class Router
 
     private static $regexOffset;
 
-    public function __construct($base = "/") {
+    public function __construct($base = "/")
+    {
       $this->run($base);
-
     }
 
     public static function __callStatic($method, $args)
@@ -48,7 +48,6 @@ class Router
       
       if (!in_array(strtoupper($method), self::$HttpMethods)) {
         echo "not exists";
-          
       }
 
       list($routeData, $reverseData) = self::parse($route);
