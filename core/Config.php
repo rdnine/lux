@@ -15,6 +15,12 @@ class Config
     $this->file = $file;
     $this->index = $index;
   }
+
+  public static function __callStatic($name, $args)
+  {
+    $value = $args[0];
+    return self::$data->$name->$value;
+  }
   
   function get()
   {
