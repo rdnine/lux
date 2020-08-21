@@ -28,4 +28,6 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = new Core\Lux();
+$lux = new Core\Lux();
+
+$lux->run();
