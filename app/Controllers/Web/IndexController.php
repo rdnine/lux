@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Web;
 
 use Core\View as View;
+use App\Controllers\Controller as Controller;
 
-class PageController extends Controller
+class IndexController extends Controller
 {
   private function __construct() {}
 
