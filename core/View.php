@@ -21,7 +21,7 @@ class View
         throw new \Exception("Error loading view");
     }
 
-    private static function c2r($args = [], $target)
+    public static function c2r($args = [], $target)
     {
         if(is_array($args)) {
             foreach ($args as $key => $value) {
