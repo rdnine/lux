@@ -3,8 +3,8 @@
 // Web routes here
 
 use Core\Router as Router;
-use App\Controllers;
+use App\Controllers\Web as Web;
 
 Router::get('/', function() {
-  Controllers\PageController::index();
+  Web\IndexController::index();
 });
