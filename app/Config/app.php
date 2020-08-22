@@ -10,7 +10,6 @@ return (object) [
 
   'protocol' => 'https',
   'domain' => 'www.domain.com',
-  'path' => '/lux',
 
   'version' => '0.0.1',
   'sub_version' => 'alpha',

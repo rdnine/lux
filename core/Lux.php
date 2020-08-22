@@ -21,7 +21,7 @@ class Lux
 
     $this->cfg = Config::build();
 
-    $this->router = new Router($this->cfg->app->path);
+    $this->router = new Router($this->cfg->paths->base);
   }
 
   public function run()
