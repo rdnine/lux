@@ -1,6 +1,6 @@
 <?php
 
 return (object) [
-  [true, 'en', 'English'],
-  [true, 'pt', 'Português']
+  "pt" => (object) ["active" => true, "slug" => "pt", "name" => 'Português'],
+  "en" => (object) ["active" => true, "slug" => "en", "name" => 'English']
 ];

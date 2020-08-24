@@ -1,6 +1,6 @@
 <?php
 
-return [
+return (object) [
   'driver' => 'mysql',
   'connections' => (object) [
     'mysql' => (object) [
