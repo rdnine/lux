@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use App\Controllers\Errors\ExceptionController as ExceptionController;
+
+use Core\Config as Config;
+
 class Router
 {
   private static $HttpMethods = ['GET', 'POST', 'PUT', 'DELETE'];
@@ -193,55 +197,55 @@ class Router
         self::$regexOffset = 0;
     }
 
-    function run($base = "/", $trailing_slash_matters = false)
+    private function run($base = "/", $trailing_slash_matters = false)
     {
-      if(!empty(self::$routes)) {        
+      if(!empty(self::$routes)) {
         $request = str_replace(
           $base, 
           "", 
           (isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"]: "/")
         );
 
-          if($request !== "" && $request !== "/") {
-              if ($trailing_slash_matters || $request === $base) {
-                  $path = ltrim($request, "/");
-              } else {
-                  $path = ltrim($request, "/");
-                  $path = rtrim($path, '/');
-              }
-          } else {
-              $path = "/";
+        if($request !== "" && $request !== "/") {
+            if ($trailing_slash_matters || $request === $base) {
+                $path = ltrim($request, "/");
+            } else {
+                $path = ltrim($request, "/");
+                $path = rtrim($path, '/');
+            }
+        } else {
+            $path = "/";
+        }
+
+        // Get current request method
+        $method = strtolower($_SERVER['REQUEST_METHOD']);
+        
+        if (array_key_exists($method, self::$routes)) {
+          foreach (self::$routes[$method] as $expression => $args) {
+            $expression = '^' . $expression . '$';
+
+            $fn =  $args[0];
+            $variables = $args[1];
+            
+            if(preg_match("#" . $expression . "#", $path, $matches)) {
+                array_shift($matches);
+                call_user_func_array($fn, $matches);
+
+                self::$routeExists = true;
+
+                break;
+            }
           }
 
-          // Get current request method
-          $method = strtolower($_SERVER['REQUEST_METHOD']);
-          
-          if (array_key_exists($method, self::$routes)) {
-            foreach (self::$routes[$method] as $expression => $args) {
-              $expression = '^' . $expression . '$';
-
-              $fn =  $args[0];
-              $variables = $args[1];
-              
-              if(preg_match("#" . $expression . "#", $path, $matches)) {
-                  array_shift($matches);
-                  call_user_func_array($fn, $matches);
-
-                  self::$routeExists = true;
-
-                  break;
-              }
-            }
-
-            if(!self::$routeExists) {
-              http_response_code(404);
-              echo file_get_contents(ERRORS . '404.html');
-            }
-          } else {
-
-            http_response_code(500);
-            throw new \Exception("No available Method!");
+          if(!self::$routeExists) {
+            http_response_code(404);
+            ExceptionController::notFound("Wrong Route!");
           }
+        } else {
+
+          http_response_code(500);
+          throw new \Exception("No available Method!");
         }
       }
+  }
 }
