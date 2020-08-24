@@ -18,8 +18,16 @@ class Config
 
   public static function __callStatic($name, $args)
   {
-    $value = $args[0];
-    return self::$data->$name->$value;
+    if(property_exists(self::$data, $name)) {
+      if(is_string($args[0])) {
+        if(property_exists(self::$data->$name, $args[0])) {
+          $value = $args[0];
+          return self::$data->$name->$value;
+        }
+      }
+    }
+
+    return false;
   }
   
   function get()
