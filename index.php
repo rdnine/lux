@@ -7,4 +7,27 @@
  * @author Rafael Duarte <rafael@rdnine.dev>
  */
 
- require_once __DIR__.'/public/index.php';
+
+/*
+|--------------------------------------------------------------------------
+| The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for the application. Just sit back and relax
+|
+*/
+
+require __DIR__.'/vendor/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Ignite
+|--------------------------------------------------------------------------
+|
+| Let the Lux guide you! Happy Development
+|
+*/
+
+$lux = new Core\Lux();
+
+$lux->run();
