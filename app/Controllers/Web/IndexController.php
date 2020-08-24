@@ -12,7 +12,15 @@ class IndexController extends Controller
 
   public static function index()
   {    
-    View::render(["head" => self::head(), "hello-world" => "Welcome to Lux!"], View::load("index.html"));
+    View::render(["head" => self::head(), "hello" => "Welcome to", "lux" => "Lux"], View::load("index.html"));
+  }
+
+  public static function homepage($lg) {
+    View::render([
+      "head" => self::head(),
+      "hello" => $lg->slug === "en" ? "Welcome to" : "Bem-vindos ao",
+      "lux" => "Lux"],
+      View::load("index.html"));
   }
 
   private static function head() {
